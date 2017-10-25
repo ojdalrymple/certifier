@@ -18,7 +18,7 @@ public class Application {
         File file = new File(DEST);
         file.getParentFile().mkdirs();
         new Application().createPdf(DEST);
-        System.out.println("------------------------"+file.getAbsolutePath());
+        System.out.println(file.getAbsolutePath());
     }
 
     /**
