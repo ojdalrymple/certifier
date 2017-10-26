@@ -1,6 +1,10 @@
 .gradle
 /build/
 
+/output/
+.DS_Store
+*.iml
+
 .idea
 
 # Ignore Gradle GUI config

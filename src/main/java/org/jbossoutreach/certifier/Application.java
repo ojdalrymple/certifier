@@ -9,6 +9,7 @@ import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.tool.xml.ElementList;
 import com.itextpdf.tool.xml.XMLWorkerHelper;
+import org.jbossoutreach.certifier.service.reader.CSVReader;
 
 import javax.swing.text.html.StyleSheet;
 import java.io.*;
@@ -26,7 +27,9 @@ public class Application {
     }
 
     public void createPdf(String file) throws IOException, DocumentException {
-        // step 1
+
+        CSVReader.read();
+/*        // step 1
         Document document = new Document(PageSize.A4.rotate());
         // step 2
         PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(file));
@@ -36,7 +39,7 @@ public class Application {
         XMLWorkerHelper.getInstance().parseXHtml(writer, document,
                 getClass().getClassLoader().getResourceAsStream(SOURCE_HTML));
         // step 5
-        document.close();
+        document.close();*/
     }
 
 }
