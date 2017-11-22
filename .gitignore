@@ -21,3 +21,8 @@ gradle-app.setting
 # gradle/wrapper/gradle-wrapper.properties
 
 application.properties
+
+
+# mac os specific 
+
+.DS_Store
