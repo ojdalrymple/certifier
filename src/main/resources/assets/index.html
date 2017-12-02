@@ -1,1 +1,44 @@
-<h1>Hello World</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Certifier</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>
+  <div class="row col-md-12">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="heading mt20">
+        <blockquote class="blockquote">
+          <p class="mb-0">Certifier</p>
+          <footer class="blockquote-footer"><cite title="Source Title">Generate Certificate</cite></footer>
+        </blockquote>
+      </div>
+      <form class="detail-form" method="POST" action="/downloadCetrificate">
+        <div class="form-group">
+          <label for="name">Name</label>
+          <input type="name" class="form-control" id="name" placeholder="Enter name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" class="form-control" id="email" placeholder="Enter email" required>
+          <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+        </div>
+        <div class="form-group">
+          <label for="title">Certificate Title</label>
+          <input type="title" class="form-control" id="title" placeholder="Enter title" required>
+        </div>
+        <div class="center">
+          <button type="submit" id="download" class="btn btn-primary mt20">Download</button>
+        </div>
+      </form>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="js/script.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
