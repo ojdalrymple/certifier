@@ -14,7 +14,6 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.Properties;
 
 
@@ -81,7 +80,7 @@ public class SendMail {
 
             multipart.addBodyPart(messageBodyPart1);
 
-            File certFile = new File(student.getCertificate());
+            File certFile = new File(student.getTitle());
 
             if (certFile.exists()) {
                 DataSource source = new FileDataSource(certFile);
