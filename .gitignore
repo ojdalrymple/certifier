@@ -1,6 +1,8 @@
 .gradle
 /build/
 
+.vertx
+
 /output/
 /out
 .DS_Store

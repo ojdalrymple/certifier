@@ -6,6 +6,6 @@ import io.vertx.ext.web.handler.StaticHandler;
 public class AssetRoute implements Route {
     @Override
     public void setup(Router router) {
-        router.route("/*").handler(StaticHandler.create("assets"));
+        router.route("/*").handler(StaticHandler.create("static"));
     }
 }

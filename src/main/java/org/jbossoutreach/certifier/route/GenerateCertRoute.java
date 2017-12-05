@@ -3,6 +3,7 @@ package org.jbossoutreach.certifier.route;
 import io.vertx.ext.web.Router;
 import io.vertx.ext.web.RoutingContext;
 import io.vertx.ext.web.handler.BodyHandler;
+import org.jbossoutreach.certifier.model.Certificate;
 import org.jbossoutreach.certifier.model.Student;
 import org.jbossoutreach.certifier.service.CertManager;
 
@@ -19,26 +20,29 @@ public class GenerateCertRoute implements Route {
 
     @Override
     public void setup(Router router) {
+
+        router.route().handler(BodyHandler.create());
         router.route("/generateCert*").handler(BodyHandler.create());
         router.post("/generateCert").handler(this::generateCert);
     }
 
     private void generateCert(RoutingContext routingContext) {
-        final Map<String, String> params = parseQuery(routingContext.getBodyAsString());
+
         final Student student = new Student(
-                params.get("name"),
-                params.get("email"),
-                params.get("title")
+                routingContext.request().getFormAttribute("name"),
+                routingContext.request().getFormAttribute("email"),
+                routingContext.request().getFormAttribute("score")
         );
 
-        final String outPath = certManager.generateCert(student);
+        final Certificate certificate = new Certificate(
+                "Some Random Organisation",
+                "Certificate of Participation",
+                "Basic Git Bootcamp",
+                student
+        );
+
+        final String outPath = certManager.generateCert(certificate);
         routingContext.response().sendFile(outPath);
     }
 
-    private static Map<String, String> parseQuery(String query) {
-        final String[] parameters = query.split("&");
-        return Arrays.stream(parameters)
-                .map(pair -> pair.split("="))
-                .collect(Collectors.toMap(input -> input[0], input -> input[1]));
-    }
 }

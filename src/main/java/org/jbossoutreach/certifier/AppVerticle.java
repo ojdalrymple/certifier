@@ -12,6 +12,7 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 public class AppVerticle extends AbstractVerticle {
+
     private final List<Route> routes;
 
     public AppVerticle(List<Route> routes) {
@@ -23,25 +24,11 @@ public class AppVerticle extends AbstractVerticle {
         final Router router = Router.router(vertx);
         routes.forEach(route -> route.setup(router));
 
-        final ServerSocket sock = new ServerSocket(0);
-        final int port = sock.getLocalPort();
-        sock.close();
-
         vertx.createHttpServer()
                 .requestHandler(router::accept)
-                .listen(
-                        config().getInteger("http.port", port),
+                .listen(4000 ,
                         result -> {
-                            if (!result.succeeded()
-                                    || !Desktop.isDesktopSupported()) {
-                                return;
-                            }
-                            try {
-                                final URI uri = new URI("http://localhost:" + port);
-                                Desktop.getDesktop().browse(uri);
-                            } catch (URISyntaxException | IOException e) {
-                                e.printStackTrace();
-                            }
+                            System.out.println("Open link for app http://localhost:" + 4000);
                         }
                 );
     }

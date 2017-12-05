@@ -4,6 +4,7 @@ import com.itextpdf.text.Document;
 import com.itextpdf.text.PageSize;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.itextpdf.tool.xml.XMLWorkerHelper;
+import org.jbossoutreach.certifier.model.Certificate;
 import org.jbossoutreach.certifier.model.Student;
 import org.jbossoutreach.certifier.service.template.Template;
 
@@ -22,7 +23,7 @@ public class PdfCertGenerator implements CertGenerator {
     }
 
     @Override
-    public String generateCert(Student student) throws Exception {
+    public String generateCert(Certificate certificate) throws Exception {
         final Document document = new Document(PageSize.A4.rotate());
         final PdfWriter writer;
         writer = PdfWriter.getInstance(document, new FileOutputStream(outPath));
@@ -30,7 +31,7 @@ public class PdfCertGenerator implements CertGenerator {
         document.open();
         try {
             XMLWorkerHelper.getInstance().parseXHtml(writer, document,
-                    template.buildTemplate(student));
+                    template.buildTemplate(certificate));
         } finally {
             document.close();
         }

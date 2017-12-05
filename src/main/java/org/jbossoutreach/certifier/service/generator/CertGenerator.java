@@ -1,10 +1,11 @@
 package org.jbossoutreach.certifier.service.generator;
 
-import org.jbossoutreach.certifier.model.Student;
+import org.jbossoutreach.certifier.model.Certificate;
 
 /**
  * An interface for a certificate generator.
  */
+
 public interface CertGenerator {
-    public String generateCert(Student student) throws Exception;
+    public String generateCert(Certificate certificate) throws Exception;
 }
