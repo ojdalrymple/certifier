@@ -17,12 +17,19 @@ This is certificate generator project running on Vert.x, built on the Gradle bui
 
 ## Running the app
 
-###### If using an IDE like Intellij IDEA,
+### If using an IDE like Intellij IDEA,
 
 1. Right click the **App** class
 2. Click **Run App.main()**
 
-
+### If using on terminal at linux/unix,
+```sh
+./gradlew run         # pwd should be project home dir
+```
+### If using on terminal at windows,
+```sh
+gradlew run           # pwd should be project home dir
+```
 ## Contributing to the project
 
 1. Make your intended changes on your locally cloned repository
