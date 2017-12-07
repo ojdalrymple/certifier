@@ -12,10 +12,6 @@ This is certificate generator project running on Vert.x, built on the Gradle bui
 
 1. *Fork* this git repository and *clone* the fork to a local directory [(Reference)](https://guides.github.com/introduction/git-handbook)
 2. If you prefer using an IDE, install [Intellij IDEA](https://www.jetbrains.com/idea) or another preferred IDE
-3. Download vertx from http://vertx.io/
-
-
-
 
 ## Running the app
 
